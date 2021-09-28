@@ -1,5 +1,10 @@
 var productoArray = {};
 var comentariosArray = {};
+var relatedArray = [];
+var array2 = [
+    1,
+    3
+];
 
 function mostrarImagenes(array) {
     let htmlContentToAppend = "";
@@ -50,6 +55,35 @@ function mostrarComentarios(arrayComentarios) {
     
 }
 
+function mostrarProductosRelacionados (array) {
+    let htmlContentToAppend = "";
+    
+    for(let i = 0; i < array.length; i++) {
+        let product = relatedArray[array2[i]] 
+    
+            htmlContentToAppend +=
+            ` <a href="product-info.html" class="list-group-item list-group-item-action">
+               <div class="row">
+               <div class="col-3">
+                           <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
+                       </div>
+                   <div class="col">
+                       <div class="d-flex w-100 justify-content-between">
+                           <h4 class="mb-1">`+ product.name +`</h4>  
+                       </div>
+                       <p class="mb-1">` + product.cost + ` </p>
+                       <p class="mb-1">` + product.description + `</p>
+                   </div>
+               </div>
+           </a>
+           `
+           
+           document.getElementById("productosrelacionados").innerHTML = htmlContentToAppend;
+       
+    }
+         
+    
+        }
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
@@ -87,4 +121,12 @@ document.addEventListener("DOMContentLoaded", function(e){
 
         }
     });
+
+    getJSONData(PRODUCTS_URL).then(function(resultObj){
+        if (resultObj.status === "ok") {
+            relatedArray = resultObj.data
+            mostrarProductosRelacionados (relatedArray)
+        }
+    })
+
 });
