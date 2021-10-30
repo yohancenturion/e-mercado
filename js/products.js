@@ -46,19 +46,17 @@ function showCategoriesList (array){
         ((maxCost == undefined) || (maxCost != undefined && parseInt(product.cost) <= maxCost))) {
 
         htmlContentToAppend +=
-         ` <a href="product-info.html" class="list-group-item list-group-item-action">
-            <div class="row">
-            <div class="col-3">
-                        <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
-                    </div>
-                <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h4 class="mb-1">`+ product.name +`</h4>  
-                    </div>
-                    <p class="mb-1">` + product.cost + ` </p>
-                    <p class="mb-1">` + product.description + `</p>
-                </div>
-            </div>
+        ` <div class="col-sm-12 col-md-9 col-lg-6 col-xl-3">
+           <div class="card" style="width: 18rem;">
+           <img src="` + product.imgSrc + `" class="card-img-top" alt="` + product.imgSrc + `">
+           <div class="card-body">
+            <h5 class="card-title">`+ product.name +`</h5>
+            <p class="card-text">` + product.description + `</p>
+            <p class="mb-1">` + product.cost + ` </p>
+            <a href="product-info.html" class="btn btn-primary">Ir al producto</a>
+           </div>
+           </div>
+           </div>
         </a>
         `
          }
