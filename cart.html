@@ -67,40 +67,56 @@
     </thead>
     <tbody id= "listado"> </tbody>
     <tfoot>
-      <td>
-        <span class="subtotal" id="subtotalarticulo">
-      </td>
+      <td> <span class="total" id="total"></span> </td>
     </tfoot>
   </table>
 </div>
 </div>
+
+<div class="container">
+  <div class="row">
+<table>
+  <thead>
+    <tr>
+      
+      <th>Total</th>
+      <th>Envio</th>
+      <th>Total con envio</th>
+    </tr>
+  </thead>
+  <tbody id= "totalEnvio"> </tbody>
+  <tfoot>
+  </tfoot>
+</table>
+</div>
+</div>
+
 <div class="container">
   <div class="row">
     <div class="borde col">
       Resumen de Compra
     <br>
-<input id="standard" name="envio" type="radio" value="" checked="" required="">
-<label for="standard">standard de 15-20 días</label>
+<input id="standard" name="envio" type="radio" value="5" checked="" required="">
+<label for="standard">standard de 15-20 días</label><br>
 
-<input id="fast" name="envio" type="radio" value="" required="">
-<label for="fast">Fast de 7-10 días</label>
+<input id="fast" name="envio" type="radio" value="7" required="">
+<label for="fast">Express de 7-10 días</label><br>
 
-<input id="Premium" name="envio" type="radio" value="" required="">
-<label for="Premium">standard de 3-5 días</label>
+<input id="Premium" name="envio" type="radio" value="15" required="">
+<label for="Premium">Premium de 3-5 días</label><br>
+<br>
+<label for="Calle">Calle</label>
+<input id="Calle" name="" type="text" required="">
+
+<label for="Numero">Numero</label>
+<input id="Numero" type="text" required="">
+
+<label for="Esquina">Esquina</label>
+<input id="Esquina" name="Esquina" type="text" required="">
+
     </div>
     </div> 
-    <div class="row">
-      <div class="borde col">
-       Método de pago
-      <br>
-<input id="tarjeta" name="pago" type="radio" value="" checked="" required="">
-<label for="tarjeta">Tarjeta de crédito</label>
-
-<input id="transferencia" name="pago" type="radio" value="" required="">
-<label for="transferencia">Transferencia Bancaria</label>
-
-<input id="mercadop" name="pago" type="radio" value="" required="">
-<label for="mercadop">Mercado Pago</label>
+  </div>
 <br>
 <br>
 
@@ -114,21 +130,64 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Has comprado con éxito!</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Forma de Pago</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-      </div>
-      <div class="modal-body">
+        </div>
+        <div class="modal-body">
+        <div id="modal-body">
+          <form id="formulario" class="needs-validation">
+        <div><class="modal">
         
-      </div>
-      <div class="modal-footer">
+        <input id="tarjeta" name="pago" type="radio" value="" checked="" required="">
+        <label for="tarjeta">Tarjeta de crédito</label><br>
+
+        <input type="text" class="form-control" name="validacion" id="numero" value="" required="" placeholder="">
+        <label for="">Número de Tarjeta</label><br>
+         <div class = "invalid-feedback">
+           Por favor, ingresa el dato solicitado. 
+          </div><br>
+    
+        <input type="text" class="form-control" name="validacion" id="codigo" value="" required=""  placeholder="">
+        <label for="">Codigo de seguridad</label><br>
+        <div class = "invalid-feedback">
+          Por favor, ingresa el dato solicitado. 
+         </div><br>
+
+        <input type="text" class="form-control" name="validacion" id="vencimiento" value="" required=""  placeholder="">
+        <label for="">Vencimiento (MM/AA)</label><br><br><br>
+        <div class = "invalid-feedback">
+          Por favor, ingresa el dato solicitado. 
+         </div><br>
+
+         <input id="transferencia" name="pago" type="radio" value="" required="">
+         <label for="transferencia">Transferencia Bancaria</label><br>
+ 
+         <input type="text" name="validacion" class="form-control" id="ncuenta" value="" required=""  placeholder="">
+         <label for="">Numero de cuenta</label><br>
+         <div class = "invalid-feedback">
+         Por favor, ingresa el dato solicitado. 
+            </div><br>
+         
+          </div>
+       </div>
+    
+        </div>
+        <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Continuar comprando</button>
+        <button type="submit" class="btn btn-primary"> Continuar comprando</button>
+      </form>
+       
+
       </div>
     </div>
+   
   </div>
 </div>
+
+
+
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
